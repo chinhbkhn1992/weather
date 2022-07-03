@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Weather forecast</string>
+    <string name="date_weather">Date: %s</string>
+    <string name="avg_temp_weather">Average temperature:  %s°C</string>
+    <string name="pressure">Pressure:  %s</string>
+    <string name="humidity">Humidity:  %s</string>
+    <string name="description">Description:  %s</string>
+    <string name="get_weather">Get Weather</string>
+</resources>
