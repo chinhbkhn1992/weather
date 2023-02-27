@@ -6,4 +6,5 @@
     <string name="humidity">Humidity:  %s</string>
     <string name="description">Description:  %s</string>
     <string name="get_weather">Get Weather</string>
+    <string name="exit">Thoát</string>
 </resources>
