@@ -3,7 +3,10 @@ package com.chinh.weather.ui.adapter
 import androidx.recyclerview.widget.DiffUtil
 import com.chinh.weather.data.model.WeatherInfo
 
-class WeatherDiffCallback(private val oldList: List<WeatherInfo>, private val newList: List<WeatherInfo>) : DiffUtil.Callback() {
+class WeatherDiffCallback(
+    private val oldList: List<WeatherInfo>,
+    private val newList: List<WeatherInfo>
+) : DiffUtil.Callback() {
 
     override fun getOldListSize(): Int = oldList.size
 
@@ -16,9 +19,6 @@ class WeatherDiffCallback(private val oldList: List<WeatherInfo>, private val ne
     override fun areContentsTheSame(oldPosition: Int, newPosition: Int): Boolean {
 
         return oldList[oldPosition] == newList[newPosition]
-    }
-    override fun getChangePayload(oldPosition: Int, newPosition: Int): Any? {
-        return super.getChangePayload(oldPosition, newPosition)
     }
 
 }

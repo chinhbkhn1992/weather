@@ -4,10 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.chinh.weather.databinding.ItemWeatherBinding
 import com.chinh.weather.data.model.WeatherInfo
+import com.chinh.weather.databinding.ItemWeatherBinding
 
-class WeatherListAdapter(val onclick:(item:WeatherInfo)->Unit) : RecyclerView.Adapter<NewsListViewHolder>() {
+class WeatherListAdapter(val onclick: (item: WeatherInfo) -> Unit) :
+    RecyclerView.Adapter<NewsListViewHolder>() {
     private val items = arrayListOf<WeatherInfo>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsListViewHolder {
         val inflater = LayoutInflater.from(parent.context)

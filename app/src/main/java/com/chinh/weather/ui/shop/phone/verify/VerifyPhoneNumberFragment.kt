@@ -1,12 +1,12 @@
 package com.chinh.weather.ui.shop.phone.verify
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.chinh.weather.R
 import com.chinh.weather.databinding.FragmentVerifyPhoneNumberBinding
 
@@ -16,6 +16,7 @@ class VerifyPhoneNumberFragment : Fragment() {
         fun newInstance() = VerifyPhoneNumberFragment()
     }
 
+    private var binding: FragmentVerifyPhoneNumberBinding? = null
     private lateinit var viewModel: VerifyPhoneNumberViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,22 +27,33 @@ class VerifyPhoneNumberFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding: FragmentVerifyPhoneNumberBinding = FragmentVerifyPhoneNumberBinding.bind(view)
-        binding.firstPinView.addTextChangedListener {
-            if (it?.length == 6){
-                binding.inputDone = true
-                binding.invalidateAll()
-            }else{
-                binding.inputDone = false
-                binding.invalidateAll()
+        binding = FragmentVerifyPhoneNumberBinding.bind(view)
+        binding?.apply {
+            firstPinView.addTextChangedListener {
+                if (it?.length == 6) {
+                    inputDone = true
+                    invalidateAll()
+                } else {
+                    inputDone = false
+                    invalidateAll()
+                }
             }
+            startCountTime()
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
+    private fun startCountTime(){
+        binding?.apply {
+            countView.start(60000)
+        }
+    }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this)[VerifyPhoneNumberViewModel::class.java]
-        // TODO: Use the ViewModel
     }
 
 }

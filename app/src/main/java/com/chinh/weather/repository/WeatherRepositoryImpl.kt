@@ -6,8 +6,6 @@ import com.chinh.weather.data.model.WeatherResponse
 import com.chinh.weather.repository.model.ApiResult
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import java.text.SimpleDateFormat
-import java.util.*
 import javax.inject.Inject
 
 class WeatherRepositoryImpl @Inject constructor(

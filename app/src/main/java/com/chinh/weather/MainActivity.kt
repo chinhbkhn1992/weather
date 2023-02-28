@@ -1,9 +1,8 @@
 package com.chinh.weather
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.chinh.weather.R
 import com.chinh.weather.databinding.ActivityWeatherBinding
 import com.scottyab.rootbeer.RootBeer
 import dagger.hilt.android.AndroidEntryPoint

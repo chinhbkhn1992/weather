@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="inputDone"
             type="Boolean" />
@@ -16,28 +17,34 @@
         android:padding="16dp"
         tools:context=".ui.shop.phone.input.InputPhoneNumberFragment">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/tv_exit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/exit"
-            android:textColor="@color/text_color_blue"
-            android:textSize="@dimen/text_size_16"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_verify_phone"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_exit"
+            android:id="@+id/im_content_verify"/>
         <TextView
             android:id="@+id/tv_phone_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="20dp"
             android:text="Xác minh số điện thoại"
             android:textColor="@color/text_color_black"
             android:textSize="@dimen/text_size_24"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_exit" />
+            app:layout_constraintTop_toBottomOf="@id/im_content_verify" />
 
         <TextView
             android:id="@+id/tv_phone_number_des"
@@ -55,31 +62,66 @@
             android:id="@+id/firstPinView"
             style="@style/PinWidget.PinView"
             android:layout_width="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_height="wrap_content"
             android:cursorVisible="true"
+            android:hint="------"
             android:inputType="numberDecimal"
             android:padding="10dp"
+            android:textColor="@color/text_color_black"
+            android:textColorHint="@color/text_color_gray"
             android:textSize="18sp"
-            android:textStyle="bold"
-            app:cursorWidth="3dp"
+            android:textStyle="normal"
             app:cursorColor="@color/text_color_gray"
+            app:cursorWidth="3dp"
             app:hideLineWhenFilled="true"
             app:itemCount="6"
-            android:textColor="@color/text_color_black"
-            app:lineColor="@android:color/black"
             app:itemHeight="48dp"
             app:itemRadius="10dp"
             app:itemSpacing="2dp"
-            android:hint="------"
-            android:textColorHint="@color/text_color_gray"
             app:itemWidth="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_phone_number_des"
+            app:lineColor="@android:color/black"
             app:lineWidth="1dp"
             app:viewType="rectangle">
 
         </com.chaos.view.PinView>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|bottom"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/firstPinView">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color_gray"
+                android:text="Gửi lại mã(" />
+
+            <cn.iwgang.countdownview.CountdownView
+                android:id="@+id/countView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:isHideTimeBackground="true"
+                app:isShowDay="false"
+                app:isShowHour="false"
+                app:isShowMillisecond="false"
+                app:isShowMinute="false"
+                app:isShowSecond="true"
+                app:isTimeTextBold="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/firstPinView"
+                app:suffixGravity="top"
+                app:suffixSecond="s)"
+                app:suffixTextColor="@color/text_color_gray"
+                app:suffixTextSize="@dimen/text_size_16"
+                app:timeTextColor="@color/text_color_gray"
+                app:timeTextSize="@dimen/text_size_16" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
 
         <androidx.appcompat.widget.AppCompatButton

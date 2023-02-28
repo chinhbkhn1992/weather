@@ -21,31 +21,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:weather_dateTime="@{item.dt}"
-            tools:text="Tue, 10 111"/>
+            tools:text="Tue, 10 111" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:weather_avg_temp="@{item.temp.day}"
-            tools:text="Tue, 10 111"/>
+            tools:text="Tue, 10 111" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:weather_pressure="@{item.pressure}"
-            tools:text="Tue, 10 111"/>
+            tools:text="Tue, 10 111" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             weather_humidity="@{item.humidity}"
-            tools:text="Tue, 10 111"/>
+            tools:text="Tue, 10 111" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             weather_description="@{item}"
-            tools:text="Tue, 10 111"/>
+            tools:text="Tue, 10 111" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>

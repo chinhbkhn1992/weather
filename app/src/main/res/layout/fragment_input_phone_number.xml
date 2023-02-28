@@ -6,9 +6,11 @@
     <data>
 
         <import type="android.view.View" />
+
         <variable
             name="inputDone"
             type="Boolean" />
+
         <variable
             name="inputError"
             type="Boolean" />
@@ -104,6 +106,7 @@
             app:layout_constraintTop_toBottomOf="@id/view_spector" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_send_code"
             android:layout_width="match_parent"
             android:layout_height="44dp"
             android:background="@drawable/bg_send_verify"

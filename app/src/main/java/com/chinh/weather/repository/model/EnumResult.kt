@@ -1,7 +1,5 @@
 package com.chinh.weather.repository.model
 
-import javax.annotation.concurrent.NotThreadSafe
-
 enum class ApiStatus {
     SUCCESS,
     ERROR,
@@ -21,12 +19,13 @@ sealed class ApiResult<out T>(
         message = null
     )
 
-    data class Error(val exception: String?, val _exceptionObject: Throwable? = null) : ApiResult<Nothing>(
-        status = ApiStatus.ERROR,
-        exceptionObject = _exceptionObject,
-        data = null,
-        message = exception
-    )
+    data class Error(val exception: String?, val _exceptionObject: Throwable? = null) :
+        ApiResult<Nothing>(
+            status = ApiStatus.ERROR,
+            exceptionObject = _exceptionObject,
+            data = null,
+            message = exception
+        )
 
     data class Loading<out R>(val _data: R? = null, val isLoading: Boolean) : ApiResult<R>(
         status = ApiStatus.LOADING,

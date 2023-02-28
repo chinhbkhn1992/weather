@@ -2,7 +2,6 @@ package com.chinh.weather.binding
 
 import android.widget.ImageView
 import androidx.appcompat.widget.SearchView
-import androidx.databinding.BindingAdapter
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.chinh.weather.R
 import com.chinh.weather.ui.adapter.GlideApp
@@ -28,6 +27,7 @@ fun ImageView.loadImage(url: String?, placeHolderImage: Int? = null, errorImage:
         .error(error)
         .into(this)
 }
+
 fun SearchView.getQueryTextChangeStateFlow(): StateFlow<String> {
 
     val query = MutableStateFlow("")

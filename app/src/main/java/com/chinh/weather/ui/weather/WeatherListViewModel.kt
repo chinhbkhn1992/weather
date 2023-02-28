@@ -22,7 +22,7 @@ class WeatherListViewModel @Inject constructor(val repo: WeatherRepository) : Vi
     fun loadData(query: String) {
         viewModelScope.launch {
             repo.getWeather(query)
-                .catch {exception ->
+                .catch { exception ->
                     data.value = ApiResult.Error(exception.message, exception)
                 }
                 .onStart {

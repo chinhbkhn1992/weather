@@ -1,6 +1,5 @@
 package com.chinh.weather.di
 
-import android.annotation.SuppressLint
 import android.content.Context
 import com.chinh.weather.BuildConfig
 import com.chinh.weather.data.api.ApiService
@@ -17,12 +16,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.security.cert.X509Certificate
 import java.util.concurrent.TimeUnit
-import javax.net.ssl.HostnameVerifier
-import javax.net.ssl.SSLContext
-import javax.net.ssl.TrustManager
-import javax.net.ssl.X509TrustManager
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -43,7 +37,11 @@ object AppModule {
     }
 
     @Provides
-    fun provideHttpClient(@ApplicationContext context:Context, builder: OkHttpClient.Builder, gson: Gson): OkHttpClient {
+    fun provideHttpClient(
+        @ApplicationContext context: Context,
+        builder: OkHttpClient.Builder,
+        gson: Gson
+    ): OkHttpClient {
         val cacheSize = (5 * 1024 * 1024).toLong()
         return builder
             .readTimeout(60, TimeUnit.SECONDS)

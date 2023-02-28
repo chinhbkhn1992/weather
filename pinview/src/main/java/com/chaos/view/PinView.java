@@ -110,6 +110,7 @@ public class PinView extends AppCompatEditText {
     private float mCursorHeight;
     private int mCursorWidth;
     private int mCursorColor;
+    private boolean isError;
 
     private int mItemBackgroundResource;
     private Drawable mItemBackground;
@@ -442,7 +443,14 @@ public class PinView extends AppCompatEditText {
     }
 
     private void drawPinBox(Canvas canvas, int i) {
-        canvas.drawPath(mPath, mPaint);
+        Paint p2 = new Paint(mPaint);
+        if(isError) {
+            p2.setColor(Color.parseColor("#D73F3F"));
+        }
+        else if(i < getText().length()){
+            p2.setColor(Color.parseColor("#3AB549"));
+        }
+        canvas.drawPath(mPath, p2);
     }
 
     private void drawPinLine(Canvas canvas, int i) {
@@ -1050,6 +1058,14 @@ public class PinView extends AppCompatEditText {
     private void updateCursorHeight() {
         int delta = 2 * dpToPx(2);
         mCursorHeight = mPinItemHeight - getTextSize() > delta ? getTextSize() + delta : getTextSize();
+    }
+
+    public boolean isError() {
+        return isError;
+    }
+
+    public void setError(boolean error) {
+        isError = error;
     }
 
     private class Blink implements Runnable {
