@@ -8,6 +8,7 @@ import com.chinh.weather.databinding.ActivityWeatherBinding
 import com.scottyab.rootbeer.RootBeer
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityWeatherBinding

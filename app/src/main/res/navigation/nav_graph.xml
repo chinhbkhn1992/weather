@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/newsListFragment"
-        android:name="com.chinh.weather.ui.weather.WeatherListFragment"
+        android:name="com.chinh.weather.ui.shop.phone.verify.VerifyPhoneNumberFragment"
         android:label="news_list_fragment"
-        tools:layout="@layout/weather_list_fragment"></fragment>
+        tools:layout="@layout/fragment_verify_phone_number"></fragment>
 </navigation>
